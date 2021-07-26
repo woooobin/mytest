@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="poosillogin">
+
+<select id="Login" resultType="LoginDto">
+SELECT USERID,USERROLE,USERENABLED,USERNAME,USERNICKNAME
+FROM POOSILMEMBERS 
+WHERE USERID = #{userid} 
+AND PASSWORD = #{password}
+</select>
+
+
+<update id="enabledout">
+UPDATE POOSILMEMBERS 
+SET USERENABLED ='N'
+WHERE USERID = #{userid}
+</update>
+
+
+</mapper>
